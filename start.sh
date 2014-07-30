@@ -22,8 +22,4 @@ until confd -onetime -node $ETCD -config-file /etc/confd/conf.d/haproxy.toml; do
 done
 
 # Run confd in the background to watch the upstream servers
-confd -interval 10 -node $ETCD -config-file /etc/confd/conf.d/haproxy.toml &
-echo "[haproxy-confd] confd is listening for changes on etcd..."
-
-echo "[nginx-confd] starting haproxy service..."
-/usr/sbin/haproxy -f /etc/haproxy.cfg -p /var/run/haproxy.pid
+confd -interval 10 -node $ETCD -config-file /etc/confd/conf.d/haproxy.toml
