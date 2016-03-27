@@ -17,7 +17,7 @@ echo "[haproxy-confd] booting container. ETCD: $ETCD"
 
 # Loop until confd has updated the haproxy config
 until confd -onetime -node $ETCD -config-file /etc/confd/conf.d/haproxy.toml; do
-  echo "[haproxy-confd] waiting for confd to refresh nginx.conf"
+  echo "[haproxy-confd] waiting for confd to refresh haproxy.cfg"
   sleep 5
 done
 
